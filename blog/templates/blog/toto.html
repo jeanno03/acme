@@ -1,0 +1,47 @@
+<h1>toto({{posterEnvoye|length}})</h1>
+
+{{posterEnvoye}}
+
+<ul>
+{% for po in posterEnvoye %}
+<li>{{po}}</li>
+{% endfor %}
+</ul>
+
+<br/>
+<br/>
+
+
+{% for po in posterEnvoye %}
+	<article>
+	<h2>#{{po.id}}-{{po.title}}</h2>
+	<p>{{po.body}}</p>
+	</article>
+
+	{% if forloop.counter %}
+	<p>au compteur</p>
+	{% endif %}
+
+	{% if forloop.counter0 %}
+	<p>au compteur 0</p>
+	{% endif %}
+
+	{% if forloop.first %}
+	<p>1er</p>
+	{% endif %}
+
+	{% if not forloop.last %}
+	<hr>
+	{% endif %}
+
+{% endfor %}
+
+
+{% for po in posterVide %}
+<p>{{po.id}}</p>
+
+{%empty%}
+<p>sorry it s empty</p>
+
+{% endfor %}
+
