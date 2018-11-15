@@ -14,8 +14,10 @@
 
 {% for po in posterEnvoye %}
 	<article>
-	<h2>#{{po.id}}-{{po.title}}</h2>
-	<p>{{po.body}}</p>
+	<h2><a href="/blog/posts/{{po.id}}">#{{po.id}}-{{po.title|upper}}</a></h2>
+	<p>{{po.body|truncatewords:2}}</p>
+
+	<p><a href="/blog/posts/{{po.id}}">lire la suite</a></p>
 	</article>
 
 	{% if forloop.counter %}

@@ -11,6 +11,13 @@ def toto(request):
 		{'id':2,'title':'Ma Reine','body':'Livre de la Reine'},
 		{'id':3,'title':'Mon Singe','body':'Livre du singe'},
 	]
-
 	posterVide=[]
 	return render(request, 'blog/toto.html', {'posterEnvoye':posters, 'posterVide':posterVide})
+
+def show(request, id):
+	posters=[
+		{'id':1,'title':'Mon roi','body':'Livre du roi'},
+		{'id':2,'title':'Ma Reine','body':'Livre de la Reine'},
+		{'id':3,'title':'Mon Singe','body':'Livre du singe'},
+	]
+	return render(request, 'blog/show.html',{'post':posters[int(id)-1]})
