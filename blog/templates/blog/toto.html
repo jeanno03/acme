@@ -1,49 +1,54 @@
-<h1>toto({{posterEnvoye|length}})</h1>
+{% extends 'layouts/base.html' %}
 
-{{posterEnvoye}}
+{%block content %}
 
-<ul>
-{% for po in posterEnvoye %}
-<li>{{po}}</li>
-{% endfor %}
-</ul>
+	<h1>toto({{posterEnvoye|length}})</h1>
 
-<br/>
-<br/>
+	{{posterEnvoye}}
 
+	{% for po in posterEnvoye %}
+	<ul>
+	<li>{{po}}</li>
+	</ul>
+	{% endfor %}
 
-{% for po in posterEnvoye %}
-	<article>
-	<h2><a href="/blog/posts/{{po.id}}">#{{po.id}}-{{po.title|upper}}</a></h2>
-	<p>{{po.body|truncatewords:2}}</p>
+	<br/>
+	<br/>
 
-	<p><a href="/blog/posts/{{po.id}}">lire la suite</a></p>
-	</article>
+	{% for po in posterEnvoye %}
+		<article>
+		<h2><a href="{% url 'blog:show' id=po.id %}">#{{po.id}}-{{po.title|upper}}</a></h2>
 
-	{% if forloop.counter %}
-	<p>au compteur</p>
-	{% endif %}
+		<p>{{po.body|truncatewords:2}}</p>
 
-	{% if forloop.counter0 %}
-	<p>au compteur 0</p>
-	{% endif %}
+		<p><a href="{% url 'blog:show' id=po.id %}">lire la suite</a></p>
+		</article>
 
-	{% if forloop.first %}
-	<p>1er</p>
-	{% endif %}
+		{% if forloop.counter %}
+		<p>au compteur</p>
+		{% endif %}
 
-	{% if not forloop.last %}
-	<hr>
-	{% endif %}
+		{% if forloop.counter0 %}
+		<p>au compteur 0</p>
+		{% endif %}
 
-{% endfor %}
+		{% if forloop.first %}
+		<p>1er</p>
+		{% endif %}
 
+		{% if not forloop.last %}
+		<hr>
+		{% endif %}
 
-{% for po in posterVide %}
-<p>{{po.id}}</p>
+	{% endfor %}
 
-{%empty%}
-<p>sorry it s empty</p>
+	{% for po in posterVide %}
+	<p>{{po.id}}</p>
 
-{% endfor %}
+	{%empty%}
+	<p>sorry it s empty</p>
+
+	{% endfor %}
+
+{% endblock %}
 

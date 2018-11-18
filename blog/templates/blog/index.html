@@ -1,3 +1,8 @@
+{% extends 'layouts/base.html' %}
+
+{%block title %}Homepage | blog{% endblock %}
+
+{%block content %}
 <h1>blog</h1>
 
 {{toto}}
@@ -7,3 +12,12 @@
 <li>{{to}}</li>
 {% endfor %}
 </ul>
+
+
+{% for to in toto %}
+<ul>
+	<li>{{to}}</li>
+</ul>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Acme{% endblock%}</title>
+</head>
+	<body>
+{% include 'layouts/_nav.html' %}
+
+{%block content %}Toto{% endblock %}
+	</body>
+	</html>
